@@ -5,16 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-	{% for a in articles_page %}
 
-         <p>Название статьи:{{a.title}}</p>
-         <p>{{a.text}}</p>
-            <p>{% for i in Articles.GetComments %}</p>
-                <p>{{i}}</p>
-            {% endfor %}
+<ul>
+		{% for article in articles %}
+         <p>Название статьи:<a href="{% url 'article' article.pk %}">{{article.title}}</a></p>
 
     {% endfor %}
 </ul>
+
 </body>
 </html>

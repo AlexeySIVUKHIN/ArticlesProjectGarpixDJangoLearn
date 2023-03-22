@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 class Articles(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
@@ -7,13 +9,17 @@ class Articles(models.Model):
     def __str__(self):
         return self.title
 
-    def GetComments(self):
+    def get_comments(self):
         return self.comment_art.all()
+
+    def get_absolute_url(self):
+        return reverse('article', kwargs={'art_id': self.pk})
 
 class Comment(models.Model):
     name = models.CharField(max_length=255, verbose_name='Автор комментария')
     text = models.TextField(blank=True, verbose_name='Текст комментария')
-    art = models.ForeignKey('Articles', on_delete=models.CASCADE, related_name='comment_art', verbose_name='Статья')
+    art = models.ForeignKey(Articles, on_delete=models.CASCADE, related_name='comment_art', verbose_name="Исходная статья", blank=True, null=True)
+
 
     def __str__(self):
-        return self.name, self.text
+        return f'{self.name} : {self.text}'

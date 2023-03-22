@@ -1,15 +1,10 @@
 <h1>{{post.title}}</h1>
 
-<p>Комментарий: {{p.cat}}</p>
+<a href="{% url 'articleslist' %}">Список всех статей</a>
 
 {{post.text|linebreaks}}
+<p>Комментарии:</p>
+{% for p in post.get_comments %}
+                <p>{{p}}</p>
+            {% endfor %}
 
-<ul>
-	{% for p in post %}
-		<li><div>
-         <p>Название статьи:{{p.title}}</p>
-         <p>{{a.text}}</p>
-        </div>
-        </li>
-    {% endfor %}
-</ul>

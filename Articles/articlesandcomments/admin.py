@@ -12,7 +12,7 @@ admin.site.register(Articles, ArticlesAdmin)
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'text')
+    list_display = ('id', 'name', 'text', 'art')
     list_display_links = ('id', 'name')
     search_fields = ('name', 'text')
 
