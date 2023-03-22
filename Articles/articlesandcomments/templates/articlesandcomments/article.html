@@ -1,0 +1,15 @@
+<h1>{{post.title}}</h1>
+
+<p>Комментарий: {{p.cat}}</p>
+
+{{post.text|linebreaks}}
+
+<ul>
+	{% for p in post %}
+		<li><div>
+         <p>Название статьи:{{p.title}}</p>
+         <p>{{a.text}}</p>
+        </div>
+        </li>
+    {% endfor %}
+</ul>

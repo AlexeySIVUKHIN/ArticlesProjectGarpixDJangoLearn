@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+	{% for a in articles_page %}
+
+         <p>Название статьи:{{a.title}}</p>
+         <p>{{a.text}}</p>
+            <p>{% for i in Articles.GetComments %}</p>
+                <p>{{i}}</p>
+            {% endfor %}
+
+    {% endfor %}
+</ul>
+</body>
+</html>
