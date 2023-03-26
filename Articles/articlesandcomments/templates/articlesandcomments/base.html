@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%} {% endblock%}</title>
+</head>
+<body>
+
+    {% if user.is_authenticated %}
+    <span>Hello, {{ user.username }}. </span><a href="{% url 'users:logout' %}">Logout<span></span></a><br>
+    {% else %}
+    <a href="{% url 'users:login' %}">Login</a><br>
+    {% endif %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

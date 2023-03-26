@@ -1,0 +1,12 @@
+{% extends 'articlesandcomments/base.html' %}
+{% block title%} Поиск статей {% endblock%}
+{% block content %}
+
+    <p>Фильтрация статей по заголовку</p>
+    <form action="{% url 'article_search' %}" method="get">
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="art_title">
+        <button type="submit">Найти</button>
+    </form>
+
+{% endblock %}

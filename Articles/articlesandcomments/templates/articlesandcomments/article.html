@@ -1,10 +1,12 @@
-<h1>{{post.title}}</h1>
+{% extends 'articlesandcomments/base.html' %}
+{% block title%} <h1>{{post.title}}</h1> {% endblock%}
+{% block content %}
 
 <a href="{% url 'articleslist' %}">Список всех статей</a>
 
 {{post.text|linebreaks}}
-<p>Комментарии:</p>
+    <p>Комментарии:</p>
 {% for p in post.get_comments %}
-                <p>{{p}}</p>
-            {% endfor %}
-
+    <p>{{p}}</p>
+{% endfor %}
+{% endblock %}

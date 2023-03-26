@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if title %}
+  <ul>
+    {% for article in articles %}
+      <li>{{ article.title }}</li>
+      <li>{{ article.text }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</body>
+</html>
+
+
+

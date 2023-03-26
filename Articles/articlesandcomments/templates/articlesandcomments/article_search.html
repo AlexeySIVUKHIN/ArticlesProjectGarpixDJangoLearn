@@ -1,0 +1,13 @@
+{% extends 'articlesandcomments/base.html' %}
+{% block content %}
+{% if title %}
+  <ul>
+    {% for article in articles %}
+      <li>{{ article }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}
+
+
+
