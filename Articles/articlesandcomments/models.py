@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Articles(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     text = models.TextField(blank=True, verbose_name='Текст')
@@ -18,3 +19,5 @@ class Comment(models.Model):
     art = models.ForeignKey(Articles, on_delete=models.CASCADE, related_name='comment_art', verbose_name="Исходная статья", blank=True, null=True)
     def __str__(self):
         return f'{self.name} : {self.text}'
+    # def is_valid_comment(self):
+    #     return (self.text != self.name)
